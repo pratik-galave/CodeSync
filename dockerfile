@@ -23,4 +23,4 @@ COPY ./backend .
 
 COPY --from=frontend-builder /app/dist ./public
 
-CMD ["node","server.js"]
+CMD ["node","server.js"] 
