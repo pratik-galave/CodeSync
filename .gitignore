@@ -1,0 +1,28 @@
+# Node modules
+node_modules/
+*/node_modules/
+
+# Dependencies
+package-lock.json
+yarn.lock
+
+# Build outputs
+dist/
+build/
+
+# Environment variables
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+EOF
+
+git add .gitignore
+git commit -m "Add .gitignore"
+git push
