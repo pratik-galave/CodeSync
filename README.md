@@ -1,5 +1,7 @@
 # CodeSync — Real-Time Collaborative Code Editor
 
+Live Demo: [https://codesync-l3la.onrender.com](https://codesync-l3la.onrender.com)
+
 A web-based collaborative code editor that enables multiple users to edit the same document simultaneously with live synchronization. Built with **Yjs** for conflict-free replicated data types (CRDT), **Socket.io** for real-time WebSocket communication, and **Monaco Editor** for a powerful editing experience.
 
 ## Features
