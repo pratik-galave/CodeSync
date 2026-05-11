@@ -10,6 +10,7 @@ app.use(express.static('public'));
 //app.use(cors());
 
 const httpServer = createServer(app);
+const port = Number(process.env.PORT) || 3001;
 
 const io = new Server(httpServer, { 
     cors: {
@@ -48,7 +49,7 @@ app.get('/health', (req, res) => {
 });
 
 
-httpServer.listen(3001, () => {
-    console.log('✅ Server is running on port 3001');
+httpServer.listen(port, () => {
+    console.log(`✅ Server is running on port ${port}`);
     console.log('📡 Waiting for WebSocket connections...');
 }); 

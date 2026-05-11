@@ -5,6 +5,26 @@ import * as Y from 'yjs'
 import { SocketIOProvider } from 'y-socket.io'
 import { useRef, useEffect, useState } from 'react'
 
+function resolveSocketUrl() {
+  const configuredUrl = import.meta.env.VITE_SOCKET_URL?.trim();
+
+  if (configuredUrl) {
+    return configuredUrl.replace(/\/$/, '');
+  }
+
+  if (typeof window === 'undefined') {
+    return 'http://localhost:3001';
+  }
+
+  const { hostname, protocol } = window.location;
+
+  if (hostname === 'localhost' || hostname === '127.0.0.1') {
+    return `${protocol}//${hostname}:3001`;
+  }
+
+  return window.location.origin;
+}
+
 function App() {
   const editorRef = useRef(null);
   const providerRef = useRef(null);
@@ -33,7 +53,7 @@ function App() {
     try {
       // Create provider once
       providerRef.current = new SocketIOProvider(
-        'ws://localhost:3001',
+        resolveSocketUrl(),
         'monaco-demo',
         ydoc,
         { autoConnect: true }
